@@ -19,13 +19,13 @@ variable "root_volume_size" {
 variable "ami_owner" {
   description = "AMI owner (e.g., 'amazon' for Amazon Linux 2, '099720109477' for Ubuntu)"
   type        = string
-  default     = "amazon"
+  default     = "099720109477"
 }
 
 variable "ami_name_pattern" {
   description = "AMI name pattern for filtering"
   type        = string
-  default     = "amzn2-ami-hvm-*-x86_64-gp2"
+  default     = "ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"
 }
 
 variable "instance_name" {

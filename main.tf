@@ -24,6 +24,7 @@ resource "aws_instance" "web" {
   ami                    = data.aws_ami.latest.id
   instance_type          = var.instance_type
   associate_public_ip_address = var.enable_public_ip
+  user_data               = file("app_installation.sh")
 
   # Root volume configuration
   root_block_device {
@@ -39,8 +40,8 @@ resource "aws_instance" "web" {
 
   # Metadata options
   metadata_options {
-    http_endpoint               = "enabled"
-    http_tokens                 = "required"
+    http_endpoint         = "enabled"
+    http_tokens           = "required"
   }
 
   # Monitoring
