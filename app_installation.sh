@@ -13,14 +13,14 @@ sudo apt update -y
 
 # Install Jenkins
 echo "Installing Jenkins..."
-sudo apt install -y openjdk-17-jdk
+sudo apt install openjdk-17-jdk -y 
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io.key
 sudo echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt update -y
-sudo apt install -y jenkins
+sudo apt install jenkins -y 
 sudo systemctl enable jenkins
 sudo systemctl start jenkins
 
@@ -29,13 +29,13 @@ echo ""
 
 # Install Git
 echo "Installing Git..."
-sudo apt install -y git
+sudo apt install git -y
 echo "Git installed"
 echo ""
 
 # Install Terraform
 echo "Installing Terraform..."
-sudo apt install -y wget curl gnupg software-properties-common
+sudo apt install wget curl gnupg software-properties-common -y 
 sudo wget -O- https://apt.releases.hashicorp.com/gpg | \
   gpg --dearmor | \
   sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null
@@ -43,7 +43,7 @@ sudo echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg]" \
   https://apt.releases.hashicorp.com $(lsb_release -cs) main | \
   sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update -y
-sudo apt install -y terraform
+sudo apt install terraform -y
 echo "Terraform installed"
 echo ""
 
