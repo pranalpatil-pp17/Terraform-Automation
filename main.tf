@@ -24,6 +24,8 @@ resource "aws_instance" "web" {
   ami                    = data.aws_ami.latest.id
   instance_type          = var.instance_type
   associate_public_ip_address = var.enable_public_ip
+  iam_instance_profile   = aws_iam_instance_profile.ec2_admin_profile.name
+  vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   user_data               = file("app_installation.sh")
 
   # Root volume configuration
